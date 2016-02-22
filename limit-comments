@@ -1,0 +1,10 @@
+//To limit the number of comments a post can receive on WordPress; add this code snippet to your functions.php file.
+
+global $post;
+$args = array( 'post_id' => $post->ID );
+$comment = get_comments( $args );
+if ( 3 <= count( $comment ) ) {
+    echo '';
+} else {
+    comment_form();
+}
